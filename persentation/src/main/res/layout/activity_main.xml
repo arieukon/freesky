@@ -13,12 +13,6 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-       <android.support.v7.widget.RecyclerView
-           android:id="@+id/recyclerview_main"
-           android:layout_width="match_parent"
-           android:paddingTop="?actionBarSize"
-           android:layout_height="match_parent"/>
-
         <android.support.design.widget.AppBarLayout
             android:id="@+id/appBarLayout"
             android:layout_width="match_parent"
@@ -28,6 +22,13 @@
                 android:id="@+id/toolbar"
                 layout="@layout/view_base_toolbar" />
         </android.support.design.widget.AppBarLayout>
+
+        <include
+            android:layout_below="@+id/appBarLayout"
+            android:layout_height="match_parent"
+            android:layout_width="match_parent"
+            android:layout_marginTop="70dp"
+            layout="@layout/content_main"/>
 
     </android.support.design.widget.CoordinatorLayout>
 
