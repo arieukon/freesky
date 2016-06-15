@@ -24,4 +24,5 @@
 
 
     <color name="bg_comments">#ffffff</color>
+    <color name="very_soft_grey">#DDDDDD</color>
 </resources>
