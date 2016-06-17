@@ -56,4 +56,5 @@
     <string name="iv_product_lucky_desc">Product lucky description</string>
     <string name="iv_product_gold_desc">Product gold description</string>
     <string name="loading_list_task">Please wait....</string>
+    <string name="title_activity_main2">Main2Activity</string>
 </resources>
