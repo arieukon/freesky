@@ -17,11 +17,20 @@
     <string name="exception_message_no_connection">There is no internet connection</string>
     <string name="exception_message_user_not_found">Cannot retrieve product data. Check your internet connection</string>
 
+    <!-- Login Activity -->
+    <string name="login_activity_main_title">Free Wi-fi for All.</string>
+    <string name="login_activity_title_desc">Silahkan Masukkan nomor ponsel Anda atau Login untuk mendapatkan akses wi-fi.</string>
+    <string name="login_activity_label_mobile_number">Your Mobile Number</string>
+    <string name="login_activity_hint_mobile_number">ex: 081902908xxx</string>
+    <string name="login_activity_button_login_facebook">Login with Facebook</string>
+
+
     <!--dummy content stuff-->
     <plurals name="likes_count">
         <item quantity="one">%d like</item>
         <item quantity="other">%d likes</item>
     </plurals>
+
     <string-array name="user_photos">
         <item>http://scontent-a-fra.cdninstagram.com/hphotos-xpf1/t51.2885-15/s306x306/e15/10665483_429615813855717_1490926670_n.jpg</item>
         <item>http://scontent-b-fra.cdninstagram.com/hphotos-xaf1/t51.2885-15/s306x306/e15/10891026_694434897342602_1094773634_n.jpg</item>
@@ -46,6 +55,7 @@
         <item>http://scontent-a-fra.cdninstagram.com/hphotos-xaf1/t51.2885-15/s306x306/e15/10899123_922231267802027_1123900984_n.jpg</item>
         <item>http://scontent-b-fra.cdninstagram.com/hphotos-xaf1/t51.2885-15/s306x306/e15/10899087_405295322969722_20422376_n.jpg</item>
     </string-array>
+
     <string name="user_profile_photo">http://lh3.googleusercontent.com/-qPlFj3K7iY8/AAAAAAAAAAI/AAAAAAAACY4/X5XFr4SPJV0/s120-c/photo.jpg</string>
     <string name="search_hint">Search product</string>
     <string name="menu_cart">cart</string>
@@ -57,4 +67,8 @@
     <string name="iv_product_gold_desc">Product gold description</string>
     <string name="loading_list_task">Please wait....</string>
     <string name="title_activity_main2">Main2Activity</string>
+    <string name="title_activity_splash">SplashActivity</string>
+    <string name="title_activity_home">HomeActivity</string>
+    <string name="title_activity_login">LoginActivity</string>
+    <string name="title_activity_video">VideoActivity</string>
 </resources>

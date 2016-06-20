@@ -1,4 +1,4 @@
-package com.kulomady.freesky.view.activity.home;
+package com.kulomady.freesky.view.activity.main;
 
 import android.os.Bundle;
 import android.support.design.widget.CoordinatorLayout;
@@ -15,7 +15,6 @@ import com.kulomady.freesky.view.adapter.MusicHomeAdapter;
 import com.kulomady.freesky.view.adapter.PaymentHomeAdapter;
 import com.kulomady.freesky.view.utils.ViewUtils;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;

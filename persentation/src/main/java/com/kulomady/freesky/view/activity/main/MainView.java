@@ -1,4 +1,4 @@
-package com.kulomady.freesky.view.activity.home;
+package com.kulomady.freesky.view.activity.main;
 
 import com.kulomady.freesky.model.home.MusicModel;
 import com.kulomady.freesky.model.home.PaymentModel;
