@@ -12,7 +12,7 @@
         android:bottom="12dp" />
 
     <corners
-        android:radius="3dp" />
+        android:radius="2dp" />
 
     <solid
         android:color="@android:color/transparent"/>
