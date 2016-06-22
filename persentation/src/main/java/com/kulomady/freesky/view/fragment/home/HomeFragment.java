@@ -3,6 +3,7 @@ package com.kulomady.freesky.view.fragment.home;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -12,7 +13,9 @@ import android.view.ViewGroup;
 import com.kulomady.freesky.R;
 import com.kulomady.freesky.model.home.MusicModel;
 import com.kulomady.freesky.view.adapter.AppHomeAdapter;
+import com.kulomady.freesky.view.adapter.DealHomeAdapter;
 import com.kulomady.freesky.view.adapter.MusicHomeAdapter;
+import com.kulomady.freesky.view.adapter.VideoHomeAdapter;
 
 import java.util.List;
 
@@ -70,23 +73,23 @@ public class HomeFragment extends Fragment implements HomeFragmentView {
         mLayoutManager = new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false);
         mRecyclerViewDeal.setLayoutManager(mLayoutManager);
 
-        MusicHomeAdapter adapter = new MusicHomeAdapter(getContext(), dealList);
+        DealHomeAdapter adapter = new DealHomeAdapter(getContext(), dealList);
         mRecyclerViewDeal.setAdapter(adapter);
     }
 
     @Override
     public void displayVideoData(List<MusicModel> videoList) {
-        RecyclerView.LayoutManager mLayoutManager;
+        GridLayoutManager mGridLayoutManager;
 
         // use this setting to improve performance if you know that changes
         // in content do not change the layout size of the RecyclerView
         mRecyclerViewVideo.setHasFixedSize(true);
 
         // use a linear layout manager
-        mLayoutManager = new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false);
-        mRecyclerViewVideo.setLayoutManager(mLayoutManager);
+        mGridLayoutManager = new GridLayoutManager(getActivity(), 2);
+        mRecyclerViewVideo.setLayoutManager(mGridLayoutManager);
 
-        MusicHomeAdapter adapter = new MusicHomeAdapter(getContext(), videoList);
+        VideoHomeAdapter adapter = new VideoHomeAdapter(getContext(), videoList);
         mRecyclerViewVideo.setAdapter(adapter);
     }
 

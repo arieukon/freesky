@@ -38,14 +38,33 @@ public class HomeFragmentPresenterImpl implements HomeFragmentPresenter {
     public List<MusicModel> getDealDataList() {
         List<MusicModel> musicList = new ArrayList();
 
-        String[] artists = new String[] {"Raisa", "Tulus", "Yura", "Lee Yung Dae"};
-        String[] titles = new String[] {"Mantan Terindah", "1001", "2048", "Mix Double"};
+        String[] titles = new String[] {
+                "Beats Audio",
+                "Navy Sweater",
+                "iPhone SE",
+                "Samsung Galaxy S7",
+                "Yonex Voltric"
+        };
+        String[] artists = new String[] {
+                "Rp 1.500.000",
+                "Rp 245.000",
+                "Rp 8.999.100",
+                "Rp 9.000.000",
+                "Rp 2.300.00"
+        };
+        String[] covers = new String[] {
+                "http://tinyurl.com/hwspj46",
+                "http://tinyurl.com/zd4epj6",
+                "http://tinyurl.com/gmoxe2l",
+                "http://tinyurl.com/gl32zdq",
+                "http://tinyurl.com/hx69gjw"
+        };
 
         for(int i=0; i<artists.length; i++){
             MusicModel musicModel = new MusicModel();
             musicModel.setTitle(titles[i]);
             musicModel.setArtist(artists[i]);
-            musicModel.setCoverImage("http://tinyurl.com/gwy8x55");
+            musicModel.setCoverImage(covers[i]);
             musicList.add(musicModel);
         }
         return musicList;
@@ -55,14 +74,27 @@ public class HomeFragmentPresenterImpl implements HomeFragmentPresenter {
     public List<MusicModel> getVideoDataList() {
         List<MusicModel> musicList = new ArrayList();
 
-        String[] artists = new String[] {"Raisa", "Tulus", "Yura", "Lee Yung Dae"};
-        String[] titles = new String[] {"Mantan Terindah", "1001", "2048", "Mix Double"};
+        String[] artists = new String[] {
+                "Raisa",
+                "Taylor Swift",
+                "Justin Bieber",
+                "Linkin Park"};
+        String[] titles = new String[] {
+                "Mantan Terindah",
+                "Wildest Dreams",
+                "What Do You Mean",
+                "Waiting for The End"};
+        String[] covers = new String[] {
+                "http://tinyurl.com/h26667n",
+                "https://i.ytimg.com/vi/IdneKLhsWOQ/maxresdefault.jpg",
+                "http://tinyurl.com/z2zxxfe",
+                "http://tinyurl.com/zndb7ah"};
 
         for(int i=0; i<artists.length; i++){
             MusicModel musicModel = new MusicModel();
             musicModel.setTitle(titles[i]);
             musicModel.setArtist(artists[i]);
-            musicModel.setCoverImage("http://tinyurl.com/gwy8x55");
+            musicModel.setCoverImage(covers[i]);
             musicList.add(musicModel);
         }
         return musicList;
