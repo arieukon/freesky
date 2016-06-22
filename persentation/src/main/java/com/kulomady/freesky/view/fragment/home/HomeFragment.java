@@ -34,6 +34,8 @@ public class HomeFragment extends Fragment implements HomeFragmentView {
     RecyclerView mRecyclerViewDeal;
     @BindView(R.id.recyclerview_video)
     RecyclerView mRecyclerViewVideo;
+    @BindView(R.id.recyclerview_music)
+    RecyclerView mRecyclerViewMusic;
     @BindView(R.id.recyclerview_app)
     RecyclerView mRecyclerViewApp;
 
@@ -57,6 +59,7 @@ public class HomeFragment extends Fragment implements HomeFragmentView {
         unbinder = ButterKnife.bind(this, view);
         mPresenter.loadDeal();
         mPresenter.loadVideo();
+        mPresenter.loadMusic();
         mPresenter.loadApp();
         return view;
     }
@@ -91,6 +94,22 @@ public class HomeFragment extends Fragment implements HomeFragmentView {
 
         VideoHomeAdapter adapter = new VideoHomeAdapter(getContext(), videoList);
         mRecyclerViewVideo.setAdapter(adapter);
+    }
+
+    @Override
+    public void displayMusicData(List<MusicModel> musicList) {
+        RecyclerView.LayoutManager mLayoutManager;
+
+        // use this setting to improve performance if you know that changes
+        // in content do not change the layout size of the RecyclerView
+        mRecyclerViewMusic.setHasFixedSize(true);
+
+        // use a linear layout manager
+        mLayoutManager = new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false);
+        mRecyclerViewMusic.setLayoutManager(mLayoutManager);
+
+        MusicHomeAdapter adapter = new MusicHomeAdapter(getContext(), musicList);
+        mRecyclerViewMusic.setAdapter(adapter);
     }
 
     @Override

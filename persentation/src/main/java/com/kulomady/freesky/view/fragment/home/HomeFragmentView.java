@@ -10,5 +10,6 @@ import java.util.List;
 public interface HomeFragmentView {
     void displayDealData(List<MusicModel> dealList);
     void displayVideoData(List<MusicModel> videoList);
+    void displayMusicData(List<MusicModel> musicList);
     void displayAppData(List<MusicModel> appList);
 }

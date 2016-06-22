@@ -10,8 +10,10 @@ import java.util.List;
 public interface HomeFragmentPresenter {
     void loadDeal();
     void loadVideo();
+    void loadMusic();
     void loadApp();
     List<MusicModel> getDealDataList();
     List<MusicModel> getVideoDataList();
+    List<MusicModel> getMusicDataList();
     List<MusicModel> getAppDataList();
 }

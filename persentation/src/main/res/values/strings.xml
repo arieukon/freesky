@@ -32,6 +32,9 @@
     <string name="fragment_home_label_videos">TOP VIDEOS</string>
     <string name="fragment_home_label_entertainment">TOP ENTERTAINMENT</string>
     <string name="fragment_home_label_apps">TOP APPS</string>
+    <string name="fragment_home_label_movies">MOVIES</string>
+    <string name="fragment_home_label_music">MUSIC</string>
+    <string name="fragment_home_button_all_music">View All</string>
 
     <!--dummy content stuff-->
     <plurals name="likes_count">
