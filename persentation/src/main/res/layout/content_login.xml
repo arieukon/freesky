@@ -76,7 +76,7 @@
             android:textColor="@color/white"
             android:textAllCaps="false"
             android:text="@string/login_activity_button_login_facebook"
-            android:background="@color/colorPrimary"/>
+            android:background="@color/blue_facebook"/>
 
     </LinearLayout>
 

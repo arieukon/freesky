@@ -68,7 +68,6 @@ public class ProductDetailsFragment extends BaseFragment implements ProductDetai
         this.getComponent(ProductComponent.class).inject(this);
     }
 
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -78,7 +77,6 @@ public class ProductDetailsFragment extends BaseFragment implements ProductDetai
         collapsingToolbarLayout = (CollapsingToolbarLayout) getActivity().findViewById(R.id.toolbar_layout);
         return fragmentView;
     }
-
 
     @Override public void onAttach(Activity activity) {
         super.onAttach(activity);

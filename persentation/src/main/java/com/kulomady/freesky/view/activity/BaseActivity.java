@@ -68,7 +68,8 @@ public abstract class BaseActivity extends AppCompatActivity {
     protected void setupToolbar() {
         if (toolbar != null) {
             setSupportActionBar(toolbar);
-            toolbar.setNavigationIcon(R.drawable.ic_menu_white);
+            toolbar.setNavigationIcon(R.mipmap.freesky_logo_text);
+            getSupportActionBar().setDisplayShowTitleEnabled(false);
         }
     }
 

@@ -1,14 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#006699</color>
-    <color name="colorPrimaryDark">#004466</color>
+    <color name="colorPrimary">#3a9dd7</color>
+    <color name="colorPrimaryDark">#007acc</color>
     <color name="colorAccent">#009999</color>
 
     <color name="fab_color_pressed">#239229</color>
     <color name="fab_color_shadow">#44000000</color>
 
+    <!-- Themes Color -->
+    <color name="theme_dark">#3a9dd7</color>
+    <color name="theme_medium">#3cabd7</color>
+    <color name="theme_light">#3eb9d7</color>
+
     <!--general color-->
     <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="grey">#666666</color>
+    <color name="grey_dark">#444444</color>
+
+    <color name="blue_facebook">#006699</color>
 
     <color name="btn_default_light_normal">#00000000</color>
     <color name="btn_default_light_pressed">#40ffffff</color>
@@ -22,7 +32,7 @@
     <color name="text_like_counter">#2b5a83</color>
     <color name="navigation_highlight">#40000000</color>
 
-
     <color name="bg_comments">#ffffff</color>
-    <color name="very_soft_grey">#DDDDDD</color>
+    <color name="soft_grey">#DDDDDD</color>
+    <color name="very_soft_grey">#EEEEEE</color>
 </resources>
