@@ -14,7 +14,6 @@ import com.kulomady.freesky.R;
 import com.kulomady.freesky.model.home.MusicModel;
 import com.kulomady.freesky.view.adapter.AppHomeAdapter;
 import com.kulomady.freesky.view.adapter.DealHomeAdapter;
-import com.kulomady.freesky.view.adapter.MusicHomeAdapter;
 import com.kulomady.freesky.view.adapter.VideoHomeAdapter;
 
 import java.util.List;
