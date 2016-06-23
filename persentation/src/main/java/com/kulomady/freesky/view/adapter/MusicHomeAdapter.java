@@ -70,8 +70,8 @@ public class MusicHomeAdapter extends RecyclerView.Adapter<MusicHomeAdapter.View
                 .error(R.mipmap.ic_launcher)
                 .into(holder.mImgCover);
 
-        holder.mTvTitle.setText(mDataset.get(position).getTitle());
-        holder.mTvArtist.setText(mDataset.get(position).getArtist());
+        holder.mTvTitle.setText(mDataset.get(position).getArtist());
+        holder.mTvArtist.setText(mDataset.get(position).getTitle());
     }
 
     // Return the size of your dataset (invoked by the layout manager)

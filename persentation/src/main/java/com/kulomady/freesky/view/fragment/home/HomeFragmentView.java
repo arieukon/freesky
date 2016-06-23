@@ -1,5 +1,6 @@
 package com.kulomady.freesky.view.fragment.home;
 
+import com.kulomady.freesky.model.home.MovieModel;
 import com.kulomady.freesky.model.home.MusicModel;
 
 import java.util.List;
@@ -10,5 +11,7 @@ import java.util.List;
 public interface HomeFragmentView {
     void displayDealData(List<MusicModel> dealList);
     void displayVideoData(List<MusicModel> videoList);
+    void displayMovieData(List<MovieModel> movieList);
+    void displayMusicData(List<MusicModel> musicList);
     void displayAppData(List<MusicModel> appList);
 }
