@@ -24,17 +24,24 @@
                 android:layout_height="match_parent"
                 android:orientation="vertical">
 
-                <ImageView
+                <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="120dp"
-                    android:layout_margin="10dp"
-                    android:background="@drawable/bg_white"/>
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp">
+
+                    <android.support.v4.view.ViewPager
+                        android:id="@+id/viewpager_banner"
+                        android:layout_width="match_parent"
+                        android:layout_height="140dp"
+                        app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+
+                </RelativeLayout>
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
-                    android:layout_marginTop="20dp"
+                    android:layout_marginTop="10dp"
                     android:text="@string/fragment_home_label_deals"
                     android:textColor="@color/grey"/>
 

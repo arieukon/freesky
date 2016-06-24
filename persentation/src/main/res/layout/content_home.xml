@@ -11,7 +11,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@+id/btn_layanan_pembayaran"
+        android:layout_above="@+id/btn_payment"
         android:orientation="vertical">
 
         <LinearLayout
@@ -41,7 +41,7 @@
     </LinearLayout>
 
     <Button
-        android:id="@+id/btn_layanan_pembayaran"
+        android:id="@+id/btn_payment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/home_activity_button_layanan_pembayaran"

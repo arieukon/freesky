@@ -50,10 +50,10 @@ public class MovieHomeSliderFragment extends Fragment implements MovieHomeSlider
         final View view = inflater.inflate(R.layout.fragment_movie_home_slider, container, false);
         unbinder = ButterKnife.bind(this, view);
 
-        String mFilterDataJSON = getArguments().getString(HomeFragment.KEY_MOVIE_DATA);
+        String movieDataJSON = getArguments().getString(HomeFragment.KEY_MOVIE_DATA);
         int tabPosition = getArguments().getInt(HomeFragment.KEY_TAB_POSITION);
-        if ((mFilterDataJSON != null) && (!mFilterDataJSON.equals(""))) {
-            mPresenter.receiveMovieData(mFilterDataJSON, tabPosition);
+        if ((movieDataJSON != null) && (!movieDataJSON.equals(""))) {
+            mPresenter.receiveMovieData(movieDataJSON, tabPosition);
         }
 
         return view;

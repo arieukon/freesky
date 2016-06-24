@@ -2,6 +2,7 @@ package com.kulomady.freesky.view.fragment.home;
 
 import android.content.Context;
 
+import com.kulomady.freesky.model.home.BannerModel;
 import com.kulomady.freesky.model.home.MovieModel;
 import com.kulomady.freesky.model.home.MusicModel;
 
@@ -18,6 +19,11 @@ public class HomeFragmentPresenterImpl implements HomeFragmentPresenter {
     public HomeFragmentPresenterImpl(Context mContext, HomeFragmentView mView) {
         this.mContext = mContext;
         this.mView = mView;
+    }
+
+    @Override
+    public void loadBanner() {
+        mView.displayBannerData(getBannerDataList());
     }
 
     @Override
@@ -43,6 +49,34 @@ public class HomeFragmentPresenterImpl implements HomeFragmentPresenter {
     @Override
     public void loadApp() {
         mView.displayAppData(getAppDataList());
+    }
+
+    @Override
+    public List<BannerModel> getBannerDataList() {
+        List<BannerModel> bannerList = new ArrayList();
+
+        String[] images = new String[]{
+                "http://imgcache.wechat.com/music/joox/photo_id_en/focus_1000/4/a/e478370e5a703a4a.jpg",
+                "http://imgcache.wechat.com/music/joox/photo_id_en/focus_1000/3/9/7466692b36b4fe39.jpg",
+                "http://imgcache.wechat.com/music/joox/photo_id_en/focus_1000/4/5/90258137c3d0bb45.jpg",
+                "http://imgcache.wechat.com/music/joox/photo_id_en/focus_1000/6/4/474de5a259949e64.jpg",
+                "http://imgcache.wechat.com/music/joox/photo_id_en/focus_1000/d/c/a8067d89645e07dc.jpg"
+        };
+        String[] urls = new String[]{
+                "http://www.joox.com",
+                "http://www.joox.com",
+                "http://www.joox.com",
+                "http://www.joox.com",
+                "http://www.joox.com"
+        };
+
+        for (int i = 0; i < images.length; i++) {
+            BannerModel bannerModel = new BannerModel();
+            bannerModel.setImage(images[i]);
+            bannerModel.setUrl(urls[i]);
+            bannerList.add(bannerModel);
+        }
+        return bannerList;
     }
 
     @Override

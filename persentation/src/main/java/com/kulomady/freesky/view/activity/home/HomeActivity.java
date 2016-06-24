@@ -1,5 +1,6 @@
 package com.kulomady.freesky.view.activity.home;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -13,11 +14,13 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.EditText;
 
 import com.kulomady.freesky.R;
 import com.kulomady.freesky.view.activity.BaseActivity;
 import com.kulomady.freesky.view.activity.BaseDrawerActivity;
+import com.kulomady.freesky.view.activity.payment.PaymentActivity;
 import com.kulomady.freesky.view.adapter.HomePagerAdapter;
 import com.kulomady.freesky.view.fragment.app.AppFragment;
 import com.kulomady.freesky.view.fragment.deal.DealFragment;
@@ -26,13 +29,21 @@ import com.kulomady.freesky.view.fragment.video.VideoFragment;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 public class HomeActivity extends BaseActivity implements HomeView {
 
+    @BindView(R.id.btn_payment)
+    Button mbtnPayment;
     @BindView(R.id.tabs)
     TabLayout mTabLayout;
     @BindView(R.id.viewpager)
     ViewPager mViewPager;
+
+    @OnClick(R.id.btn_payment)
+    void paymentClicked(){
+        gotoPayment();
+    }
 
     String[] mTabs =  new String[] {"HOME", "DEALS", "APPS", "VIDEOS"};
 
@@ -113,6 +124,12 @@ public class HomeActivity extends BaseActivity implements HomeView {
 
             }
         });
+    }
+
+    @Override
+    public void gotoPayment() {
+        Intent intent = new Intent(HomeActivity.this, PaymentActivity.class);
+        startActivity(intent);
     }
 
     @Override

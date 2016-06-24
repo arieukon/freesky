@@ -7,4 +7,5 @@ public interface HomeView {
     void initView();
     void setupViewPager();
     void setViewpagerPageChangeListener();
+    void gotoPayment();
 }

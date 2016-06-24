@@ -14,6 +14,7 @@ import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.kulomady.freesky.R;
+import com.kulomady.freesky.model.home.BannerModel;
 import com.kulomady.freesky.model.home.MovieModel;
 import com.kulomady.freesky.model.home.MusicModel;
 import com.kulomady.freesky.view.adapter.AppHomeAdapter;
@@ -21,6 +22,7 @@ import com.kulomady.freesky.view.adapter.DealHomeAdapter;
 import com.kulomady.freesky.view.adapter.HomePagerAdapter;
 import com.kulomady.freesky.view.adapter.MusicHomeAdapter;
 import com.kulomady.freesky.view.adapter.VideoHomeAdapter;
+import com.kulomady.freesky.view.fragment.bannerHome.BannerHomeFragment;
 import com.kulomady.freesky.view.fragment.movieHomeSlider.MovieHomeSliderFragment;
 import com.kulomady.freesky.view.utils.viewpagerIndicator.CirclePageIndicator;
 
@@ -37,9 +39,12 @@ public class HomeFragment extends Fragment implements HomeFragmentView {
 
     private Unbinder unbinder;
 
+    public static final String KEY_BANNER_DATA = "BANNER_DATA";
     public static final String KEY_MOVIE_DATA = "MOVIE_DATA";
     public static final String KEY_TAB_POSITION = "TAB_POSITION";
 
+    @BindView(R.id.viewpager_banner)
+    ViewPager mViewPagerBanner;
     @BindView(R.id.recyclerview_deal)
     RecyclerView mRecyclerViewDeal;
     @BindView(R.id.recyclerview_video)
@@ -72,12 +77,38 @@ public class HomeFragment extends Fragment implements HomeFragmentView {
         final View view = inflater.inflate(R.layout.fragment_home, container, false);
         unbinder = ButterKnife.bind(this, view);
 
+        mPresenter.loadBanner();
         mPresenter.loadDeal();
         mPresenter.loadVideo();
         mPresenter.loadMovie();
         mPresenter.loadMusic();
         mPresenter.loadApp();
         return view;
+    }
+
+    @Override
+    public void displayBannerData(List<BannerModel> bannerList) {
+        HomePagerAdapter adapter = new HomePagerAdapter(getChildFragmentManager());
+        Fragment fragment;
+        Bundle bundle;
+
+        if (bannerList.size() > 0) {
+            int tabPosition = 0;
+            for (BannerModel banner: bannerList) {
+                String bannerDataJSON = new Gson().toJson(bannerList.get(tabPosition));
+                //Setup Tab Title
+                fragment = new BannerHomeFragment();
+                bundle = new Bundle();
+                bundle.putString(KEY_BANNER_DATA, bannerDataJSON);
+                bundle.putInt(KEY_TAB_POSITION, tabPosition);
+                fragment.setArguments(bundle);
+                adapter.addFragment(fragment, "");
+                tabPosition++;
+            }
+
+            //SetFragment to View Pager Adapter
+            mViewPagerBanner.setAdapter(adapter);
+        }
     }
 
     @Override
