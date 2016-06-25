@@ -93,6 +93,7 @@
                         android:text="@string/fragment_home_label_movies"
                         android:textColor="@color/grey"/>
 
+<<<<<<< HEAD
                     <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content">
@@ -118,11 +119,22 @@
                             android:paddingTop="10dp" />-->
 
                     </RelativeLayout>
+=======
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="140dp"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/bg_white"/>
+>>>>>>> d649156e154ed356ac910aa5669903ce59d09f1a
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+<<<<<<< HEAD
                         android:layout_marginTop="20dp"
+=======
+                        android:layout_marginTop="10dp"
+>>>>>>> d649156e154ed356ac910aa5669903ce59d09f1a
                         android:layout_marginLeft="10dp"
                         android:layout_marginRight="10dp"
                         android:text="@string/fragment_home_label_music"
