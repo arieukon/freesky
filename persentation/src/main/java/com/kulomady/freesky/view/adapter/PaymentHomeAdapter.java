@@ -69,11 +69,11 @@ public class PaymentHomeAdapter extends RecyclerView.Adapter<PaymentHomeAdapter.
         // - replace the contents of the view with that element
         holder.mItemLayout.setBackgroundColor(Color.parseColor("#" + mDataset.get(position).getBackgroundColor()));
 
-        Picasso.with(mContext)
+    /*    Picasso.with(mContext)
                 .load(mDataset.get(position).getLogo())
                 .placeholder(R.drawable.bg_white)
                 .error(R.drawable.bg_white)
-                .into(holder.mImgCover);
+                .into(holder.mImgCover);*/
 
         holder.mTvTitle.setText(mDataset.get(position).getPaymentName());
     }

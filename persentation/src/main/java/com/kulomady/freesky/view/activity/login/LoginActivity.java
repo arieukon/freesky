@@ -15,6 +15,7 @@ import com.kulomady.freesky.view.activity.video.VideoActivity;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 public class LoginActivity extends AppCompatActivity implements LoginView {
 
@@ -33,6 +34,11 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
         mPresenter = new LoginPresenterImpl(this, this);
 
         initView();
+    }
+
+    @OnClick(R.id.btn_facebook)
+    void btnFacebookClicked(){
+        gotoVideoPage();
     }
 
     @Override

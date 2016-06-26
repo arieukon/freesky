@@ -1,6 +1,8 @@
 package com.kulomady.freesky.view.fragment.video;
 
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.GridLayoutManager;
@@ -11,9 +13,7 @@ import android.view.ViewGroup;
 
 import com.kulomady.freesky.R;
 import com.kulomady.freesky.model.home.MusicModel;
-import com.kulomady.freesky.view.adapter.DealHomeAdapter;
 import com.kulomady.freesky.view.adapter.VideoHomeAdapter;
-import com.kulomady.freesky.view.fragment.deal.DealFragmentPresenterImpl;
 
 import java.util.List;
 
@@ -62,5 +62,19 @@ public class VideoFragment extends Fragment implements VideoFragmentView {
 
         VideoHomeAdapter adapter = new VideoHomeAdapter(getContext(), videoList);
         mRecyclerView.setAdapter(adapter);
+
+        adapter.setOnItemClickListener(new VideoHomeAdapter.ClickListener() {
+            @Override
+            public void onItemClick(int position, View v) {
+                gotoWebView();
+            }
+        });
+    }
+
+    @Override
+    public void gotoWebView() {
+        String url = "https://www.youtube.com/watch?v=uo35R9zQsAI";
+        Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+        getActivity().startActivity(browserIntent);
     }
 }

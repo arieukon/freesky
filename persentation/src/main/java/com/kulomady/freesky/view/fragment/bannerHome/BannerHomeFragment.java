@@ -63,7 +63,7 @@ public class BannerHomeFragment extends Fragment implements BannerHomeView {
         Picasso.with(getActivity())
                 .load(bannerModel.getImage())
                 .placeholder(R.drawable.bg_white)
-                .error(R.drawable.bg_white)
+                .error(R.drawable.banner_default)
                 .into(mImgBanner);
         Log.d("Banner Image", bannerModel.getImage());
     }

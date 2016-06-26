@@ -10,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.kulomady.freesky.R;
+import com.kulomady.freesky.model.ProductModel;
 import com.kulomady.freesky.model.home.MusicModel;
 import com.kulomady.freesky.view.utils.ViewUtils;
 import com.squareup.picasso.Picasso;
@@ -23,6 +24,9 @@ import butterknife.ButterKnife;
  * Created by macaris on 6/15/16.
  */
 public class VideoHomeAdapter extends RecyclerView.Adapter<VideoHomeAdapter.ViewHolder> {
+
+    private static ClickListener clickListener;
+
     private Context mContext;
     public List<MusicModel> mDataset;
 
@@ -62,7 +66,7 @@ public class VideoHomeAdapter extends RecyclerView.Adapter<VideoHomeAdapter.View
 
     // Replace the contents of a view (invoked by the layout manager)
     @Override
-    public void onBindViewHolder(ViewHolder holder, int position) {
+    public void onBindViewHolder(ViewHolder holder, final int position) {
         // - get element from your dataset at this position
         // - replace the contents of the view with that element
 
@@ -90,5 +94,13 @@ public class VideoHomeAdapter extends RecyclerView.Adapter<VideoHomeAdapter.View
     @Override
     public int getItemCount() {
         return mDataset.size();
+    }
+
+    public void setOnItemClickListener(ClickListener clickListener) {
+        VideoHomeAdapter.clickListener = clickListener;
+    }
+
+    public interface ClickListener {
+        void onItemClick(int position, View v);
     }
 }

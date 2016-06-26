@@ -6,24 +6,12 @@
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.kulomady.freesky.view.activity.video.VideoActivity"
-    tools:showIn="@layout/activity_video">
+    tools:showIn="@layout/activity_video"
+    android:background="@color/black">
 
-
-        <ImageView
-            android:id="@+id/img_video"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:scaleType="fitXY"
-            android:src="@drawable/video_page_background"/>
-
-        <Button
-            android:id="@+id/btn_skip"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="20dp"
-            android:text="SKIP"
-            android:layout_gravity="right"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentBottom="true" />
+    <com.google.android.youtube.player.YouTubePlayerView
+        android:id="@+id/youtube_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 
 </RelativeLayout>

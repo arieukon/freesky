@@ -9,4 +9,5 @@ import java.util.List;
  */
 public interface VideoFragmentView {
     void displayVideoData(List<MusicModel> videoList);
+    void gotoWebView();
 }
