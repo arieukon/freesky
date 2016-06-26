@@ -256,11 +256,19 @@ public class HomeFragmentPresenterImpl implements HomeFragmentPresenter {
                 "http://icons.iconarchive.com/icons/martz90/circle/512/path-icon.png"
         };
 
+        String[] urls = new String[]{
+                "https://play.google.com/store/apps/details?id=com.instagram.android&hl=en",
+                "https://play.google.com/store/apps/details?id=com.kaskus.android&hl=en",
+                "https://play.google.com/store/apps/details?id=blibli.mobile.commerce&hl=en",
+                "https://play.google.com/store/apps/details?id=com.twitter.android&hl=en",
+                "https://play.google.com/store/apps/details?id=com.path&hl=en"};
+
         for (int i = 0; i < artists.length; i++) {
             MusicModel musicModel = new MusicModel();
             musicModel.setTitle(titles[i]);
             musicModel.setArtist(artists[i]);
             musicModel.setCoverImage(logos[i]);
+            musicModel.setUrl(urls[i]);
             musicList.add(musicModel);
         }
         return musicList;

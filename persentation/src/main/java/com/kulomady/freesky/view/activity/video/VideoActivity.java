@@ -20,6 +20,13 @@ public class VideoActivity extends AppCompatActivity implements com.kulomady.fre
     @BindView(R.id.btn_skip)
     Button mBtnSkip;
 
+    @Override
+    protected void onCreate(Bundle  savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_video);
+        ButterKnife.bind(VideoActivity.this);
+    }
+
     @OnClick(R.id.img_video)
     void imgVideoClicked(){
         gotoHome();
@@ -27,13 +34,6 @@ public class VideoActivity extends AppCompatActivity implements com.kulomady.fre
     @OnClick(R.id.btn_skip)
     void btnSkipClicked(){
         gotoHome();
-    }
-
-    @Override
-    protected void onCreate(Bundle  savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_video);
-        ButterKnife.bind(VideoActivity.this);
     }
 
     @Override

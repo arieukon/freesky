@@ -8,4 +8,5 @@ import com.kulomady.freesky.model.home.MovieModel;
  */
 public interface BannerHomeView {
     void displayBannerData(BannerModel bannerModel);
+    void gotoWebPage(String url);
 }

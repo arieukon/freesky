@@ -7,6 +7,7 @@ public class MusicModel {
     String artist;
     String title;
     String coverImage;
+    String url;
 
     public String getArtist() {
         return artist;
@@ -30,5 +31,13 @@ public class MusicModel {
 
     public void setCoverImage(String coverImage) {
         this.coverImage = coverImage;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
     }
 }

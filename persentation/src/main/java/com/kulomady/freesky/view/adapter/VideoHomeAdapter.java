@@ -78,7 +78,7 @@ public class VideoHomeAdapter extends RecyclerView.Adapter<VideoHomeAdapter.View
         Picasso.with(mContext)
                 .load(mDataset.get(position).getCoverImage())
                 .placeholder(R.drawable.bg_white)
-                .error(R.mipmap.ic_launcher)
+                .error(R.drawable.bg_white)
                 .into(holder.mImgCover);
 
         String videoInfo = mDataset.get(position).getArtist() + " - " + mDataset.get(position).getTitle();

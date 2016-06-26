@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import com.kulomady.freesky.R;
 import com.kulomady.freesky.model.home.MusicModel;
+import com.kulomady.freesky.view.utils.ViewUtils;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
@@ -23,6 +24,7 @@ import butterknife.ButterKnife;
 public class DealHomeAdapter extends RecyclerView.Adapter<DealHomeAdapter.ViewHolder> {
     private Context mContext;
     public List<MusicModel> mDataset;
+    public boolean mIsHome;
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
         // each data item is just a string in this case
@@ -40,9 +42,10 @@ public class DealHomeAdapter extends RecyclerView.Adapter<DealHomeAdapter.ViewHo
     }
 
     // Provide a suitable constructor (depends on the kind of dataset)
-    public DealHomeAdapter(Context context, List<MusicModel> myDataset) {
+    public DealHomeAdapter(Context context, List<MusicModel> myDataset, boolean isHome) {
         mContext = context;
         mDataset = myDataset;
+        mIsHome = isHome;
     }
 
     // Create new views (invoked by the layout manager)
@@ -52,6 +55,10 @@ public class DealHomeAdapter extends RecyclerView.Adapter<DealHomeAdapter.ViewHo
         // create a new view
         View view = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.item_deal_home, parent, false);
+        if(!mIsHome){
+            view = LayoutInflater.from(parent.getContext())
+                    .inflate(R.layout.item_deal_grid, parent, false);
+        }
         // set the view's size, margins, paddings and layout parameters
 
         ViewHolder vh = new ViewHolder(view);
@@ -63,10 +70,21 @@ public class DealHomeAdapter extends RecyclerView.Adapter<DealHomeAdapter.ViewHo
     public void onBindViewHolder(ViewHolder holder, int position) {
         // - get element from your dataset at this position
         // - replace the contents of the view with that element
+        if(!mIsHome){
+            int screenWidth = ViewUtils.getScreenWidth(mContext);
+            int paddingTotal = 30;
+
+            int imageWidth = (screenWidth / 2) - paddingTotal;
+            int imageHeight = imageWidth / 2;
+
+            holder.mImgCover.getLayoutParams().width = imageWidth;
+            holder.mImgCover.getLayoutParams().height = imageWidth;
+        }
+
         Picasso.with(mContext)
                 .load(mDataset.get(position).getCoverImage())
                 .placeholder(R.drawable.bg_white)
-                .error(R.mipmap.ic_launcher)
+                .error(R.drawable.bg_white)
                 .into(holder.mImgCover);
 
         holder.mTvTitle.setText(mDataset.get(position).getTitle());

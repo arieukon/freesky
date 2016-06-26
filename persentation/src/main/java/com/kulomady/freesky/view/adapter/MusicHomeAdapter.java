@@ -67,7 +67,7 @@ public class MusicHomeAdapter extends RecyclerView.Adapter<MusicHomeAdapter.View
         Picasso.with(mContext)
                 .load(mDataset.get(position).getCoverImage())
                 .placeholder(R.drawable.bg_white)
-                .error(R.mipmap.ic_launcher)
+                .error(R.drawable.bg_white)
                 .into(holder.mImgCover);
 
         holder.mTvTitle.setText(mDataset.get(position).getArtist());

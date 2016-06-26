@@ -13,20 +13,14 @@ public interface HomeFragmentPresenter {
     void loadBanner();
     void loadDeal();
     void loadVideo();
-<<<<<<< HEAD
     void loadMovie();
-=======
->>>>>>> d649156e154ed356ac910aa5669903ce59d09f1a
     void loadMusic();
     void loadApp();
 
     List<BannerModel> getBannerDataList();
     List<MusicModel> getDealDataList();
     List<MusicModel> getVideoDataList();
-<<<<<<< HEAD
     List<MovieModel> getMovieDataList();
-=======
->>>>>>> d649156e154ed356ac910aa5669903ce59d09f1a
     List<MusicModel> getMusicDataList();
     List<MusicModel> getAppDataList();
 }

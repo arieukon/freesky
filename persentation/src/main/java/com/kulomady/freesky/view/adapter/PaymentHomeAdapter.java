@@ -1,11 +1,14 @@
 package com.kulomady.freesky.view.adapter;
 
 import android.content.Context;
+import android.graphics.Color;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.kulomady.freesky.R;
@@ -31,6 +34,8 @@ public class PaymentHomeAdapter extends RecyclerView.Adapter<PaymentHomeAdapter.
         public TextView mTvTitle;
         @BindView(R.id.img_cover)
         public ImageView mImgCover;
+        @BindView(R.id.item_layout)
+        public LinearLayout mItemLayout;
 
         public ViewHolder(View v) {
             super(v);
@@ -62,10 +67,12 @@ public class PaymentHomeAdapter extends RecyclerView.Adapter<PaymentHomeAdapter.
     public void onBindViewHolder(ViewHolder holder, int position) {
         // - get element from your dataset at this position
         // - replace the contents of the view with that element
+        holder.mItemLayout.setBackgroundColor(Color.parseColor("#" + mDataset.get(position).getBackgroundColor()));
+
         Picasso.with(mContext)
                 .load(mDataset.get(position).getLogo())
                 .placeholder(R.drawable.bg_white)
-                .error(R.mipmap.ic_launcher)
+                .error(R.drawable.bg_white)
                 .into(holder.mImgCover);
 
         holder.mTvTitle.setText(mDataset.get(position).getPaymentName());

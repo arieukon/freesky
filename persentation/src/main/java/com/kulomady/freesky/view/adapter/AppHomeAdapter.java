@@ -21,10 +21,14 @@ import butterknife.ButterKnife;
  * Created by macaris on 6/15/16.
  */
 public class AppHomeAdapter extends RecyclerView.Adapter<AppHomeAdapter.ViewHolder> {
+
     private Context mContext;
     public List<MusicModel> mDataset;
+    public boolean mIsHome;
 
-    public static class ViewHolder extends RecyclerView.ViewHolder {
+    private static ClickListener clickListener;
+
+    public static class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         // each data item is just a string in this case
         @BindView(R.id.tv_title)
         public TextView mTvTitle;
@@ -36,13 +40,20 @@ public class AppHomeAdapter extends RecyclerView.Adapter<AppHomeAdapter.ViewHold
         public ViewHolder(View v) {
             super(v);
             ButterKnife.bind(this, v);
+            v.setOnClickListener(this);
+        }
+
+        @Override
+        public void onClick(View v) {
+            clickListener.onItemClick(getAdapterPosition(), v);
         }
     }
 
     // Provide a suitable constructor (depends on the kind of dataset)
-    public AppHomeAdapter(Context context, List<MusicModel> myDataset) {
+    public AppHomeAdapter(Context context, List<MusicModel> myDataset, boolean isHome) {
         mContext = context;
         mDataset = myDataset;
+        mIsHome = isHome;
     }
 
     // Create new views (invoked by the layout manager)
@@ -52,6 +63,10 @@ public class AppHomeAdapter extends RecyclerView.Adapter<AppHomeAdapter.ViewHold
         // create a new view
         View view = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.item_app_home, parent, false);
+        if (!mIsHome) {
+            view = LayoutInflater.from(parent.getContext())
+                    .inflate(R.layout.item_app_grid, parent, false);
+        }
         // set the view's size, margins, paddings and layout parameters
 
         ViewHolder vh = new ViewHolder(view);
@@ -66,7 +81,7 @@ public class AppHomeAdapter extends RecyclerView.Adapter<AppHomeAdapter.ViewHold
         Picasso.with(mContext)
                 .load(mDataset.get(position).getCoverImage())
                 .placeholder(R.drawable.bg_white)
-                .error(R.mipmap.ic_launcher)
+                .error(R.drawable.bg_white)
                 .into(holder.mImgCover);
 
         holder.mTvTitle.setText(mDataset.get(position).getTitle());
@@ -77,5 +92,13 @@ public class AppHomeAdapter extends RecyclerView.Adapter<AppHomeAdapter.ViewHold
     @Override
     public int getItemCount() {
         return mDataset.size();
+    }
+
+    public void setOnItemClickListener(ClickListener clickListener) {
+        AppHomeAdapter.clickListener = clickListener;
+    }
+
+    public interface ClickListener {
+        void onItemClick(int position, View v);
     }
 }

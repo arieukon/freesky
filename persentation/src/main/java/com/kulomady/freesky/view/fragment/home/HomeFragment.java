@@ -1,12 +1,15 @@
 package com.kulomady.freesky.view.fragment.home;
 
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,9 +24,11 @@ import com.kulomady.freesky.view.adapter.AppHomeAdapter;
 import com.kulomady.freesky.view.adapter.DealHomeAdapter;
 import com.kulomady.freesky.view.adapter.HomePagerAdapter;
 import com.kulomady.freesky.view.adapter.MusicHomeAdapter;
+import com.kulomady.freesky.view.adapter.ProductsAdapter;
 import com.kulomady.freesky.view.adapter.VideoHomeAdapter;
 import com.kulomady.freesky.view.fragment.bannerHome.BannerHomeFragment;
 import com.kulomady.freesky.view.fragment.movieHomeSlider.MovieHomeSliderFragment;
+import com.kulomady.freesky.view.utils.ViewUtils;
 import com.kulomady.freesky.view.utils.viewpagerIndicator.CirclePageIndicator;
 
 import java.util.List;
@@ -88,6 +93,15 @@ public class HomeFragment extends Fragment implements HomeFragmentView {
 
     @Override
     public void displayBannerData(List<BannerModel> bannerList) {
+        int screenWidth = ViewUtils.getScreenWidth(getActivity());
+        int paddingTotal = 20;
+
+        int imageWidth = (screenWidth) - paddingTotal;
+        int imageHeight = (screenWidth / 3);
+
+        mViewPagerBanner.getLayoutParams().width = imageWidth;
+        mViewPagerBanner.getLayoutParams().height = imageHeight;
+
         HomePagerAdapter adapter = new HomePagerAdapter(getChildFragmentManager());
         Fragment fragment;
         Bundle bundle;
@@ -123,7 +137,7 @@ public class HomeFragment extends Fragment implements HomeFragmentView {
         mLayoutManager = new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false);
         mRecyclerViewDeal.setLayoutManager(mLayoutManager);
 
-        DealHomeAdapter adapter = new DealHomeAdapter(getContext(), dealList);
+        DealHomeAdapter adapter = new DealHomeAdapter(getContext(), dealList, true);
         mRecyclerViewDeal.setAdapter(adapter);
     }
 
@@ -186,7 +200,7 @@ public class HomeFragment extends Fragment implements HomeFragmentView {
     }
 
     @Override
-    public void displayAppData(List<MusicModel> appList) {
+    public void displayAppData(final List<MusicModel> appList) {
         RecyclerView.LayoutManager mLayoutManager;
 
         // use this setting to improve performance if you know that changes
@@ -197,7 +211,21 @@ public class HomeFragment extends Fragment implements HomeFragmentView {
         mLayoutManager = new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false);
         mRecyclerViewApp.setLayoutManager(mLayoutManager);
 
-        AppHomeAdapter adapter = new AppHomeAdapter(getContext(), appList);
+        AppHomeAdapter adapter = new AppHomeAdapter(getContext(), appList, true);
         mRecyclerViewApp.setAdapter(adapter);
+
+        adapter.setOnItemClickListener(new AppHomeAdapter.ClickListener() {
+            @Override
+            public void onItemClick(int position, View v) {
+                String url = appList.get(position).getUrl();
+                gotoPlayStore(url);
+            }
+        });
+    }
+
+    @Override
+    public void gotoPlayStore(String url) {
+        Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+        startActivity(browserIntent);
     }
 }

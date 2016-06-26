@@ -16,4 +16,6 @@ public interface HomeFragmentView {
     void displayMovieData(List<MovieModel> movieList);
     void displayMusicData(List<MusicModel> musicList);
     void displayAppData(List<MusicModel> appList);
+
+    void gotoPlayStore(String url);
 }
